@@ -21,6 +21,7 @@ help: bin/terraform
 	@echo "  switch                Switch workspace"
 	@echo "  apply                 Builds or changes infrastructure"
 	@echo "  graph                 Create a visual graph of Terraform resources"
+	@echo "  ws_list               Show all Terraform workspaces"
 
 bin/terraform:
 	@echo "*** Starting Terraform download ***"
@@ -65,6 +66,9 @@ version:
 
 graph: check_ws select_ws
 	$(TERRAFORM) graph $(WS)| dot -Tpng > $(WS)_graph.png
+
+ws_list:
+	$(TERRAFORM) workspace list
 
 pre_tasks: init
 	mv $(WS)/pre_tasks._tf $(WS)/pre_tasks.tf
