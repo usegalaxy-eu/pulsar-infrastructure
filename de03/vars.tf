@@ -72,7 +72,7 @@ variable "private_network" {
   default  = {
     name = "vgcn-de03-private"
     subnet_name = "vgcn-de03-private-subnet"
-    cidr4 = "192.168.198.0/24"
+    cidr4 = "192.168.195.0/24"
   }
 }
 
