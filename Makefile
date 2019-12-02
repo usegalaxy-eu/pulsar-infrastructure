@@ -24,7 +24,7 @@ help: bin/terraform
 	@echo " "
 	@echo "  version               Show Terraform version"
 	@echo "  ws_list               Show all Terraform workspaces"
-	
+
 
 bin/terraform:
 	@echo "*** Starting Terraform download ***"
@@ -39,8 +39,9 @@ check_ws:
 	$(call check_defined, WS, prefix WS=value)
 
 check_ws_dir: check_ws
-	if [ ! -d $(WS) ];then			\
+	if [ ! -d $(WS) ];then				\
 		$(TERRAFORM) workspace new $(WS);	\
+		mkdir -p $(WS);				\
 	fi
 
 select_ws: check_ws
