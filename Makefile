@@ -51,8 +51,9 @@ select_ws: check_ws
 apply: validate
 	yes yes | $(TERRAFORM) apply $(WS)
 
-init: check_ws_dir update
-	cp -r $(TF_DIR) $(WS);
+init: check_ws_dir
+	cp $(TF_DIR)/*.tf $(WS)/;
+	cp -r $(TF_DIR)/files $(WS)/;
 	$(TERRAFORM) workspace select $(WS)
 	$(TERRAFORM) init $(WS)
 
