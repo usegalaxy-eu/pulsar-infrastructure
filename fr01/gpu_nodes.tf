@@ -17,7 +17,7 @@ resource "openstack_compute_instance_v2" "gpu-node" {
      - cuda-10-1
     write_files:
     - content: |
-        CONDOR_HOST = ${openstack_compute_instance_v2.central-manager.network.1.fixed_ip_v4}
+        CONDOR_HOST = ${openstack_compute_instance_v2.central-manager.network.0.fixed_ip_v4}
         ALLOW_WRITE = *
         ALLOW_READ = $(ALLOW_WRITE)
         ALLOW_ADMINISTRATOR = *
