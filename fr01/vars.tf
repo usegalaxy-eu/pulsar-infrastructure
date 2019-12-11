@@ -43,7 +43,7 @@ variable "name_prefix" {
 }
 
 variable "name_suffix" {
-  default = ".usegalaxy.eu"
+  default = ".genouest.org"
 }
 
 variable "secgroups_cm" {
