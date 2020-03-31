@@ -47,6 +47,8 @@ check_ws_dir: check_ws
 select_ws: check_ws
 	$(TERRAFORM) workspace select $(WS)
 
+_apply: validate
+	yes yes | $(TERRAFORM) apply tf.plan
 
 apply: validate
 	yes yes | $(TERRAFORM) apply $(WS)
@@ -61,8 +63,11 @@ init: check_ws_dir
 	$(TERRAFORM) workspace select $(WS)
 	$(TERRAFORM) init $(WS)
 
+tf.plan: validate
+	$(TERRAFORM) plan -out tf.plan $(WS)
+
 plan: validate
-	$(TERRAFORM) plan $(WS)
+	$(TERRAFORM) plan $(WS) 
 
 switch: check_ws select_ws
 	$(TERRAFORM) workspace list
@@ -78,6 +83,9 @@ version:
 
 ws_list:
 	$(TERRAFORM) workspace list
+
+clean:
+	rm tf.plan
 
 
 graph: check_ws select_ws
