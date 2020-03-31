@@ -51,6 +51,10 @@ select_ws: check_ws
 apply: validate
 	yes yes | $(TERRAFORM) apply $(WS)
 
+_init: check_ws_dir
+	$(TERRAFORM) workspace select $(WS)
+	$(TERRAFORM) init $(WS)
+
 init: check_ws_dir
 	cp -u $(TF_DIR)/*.tf $(WS)/;
 	cp -r $(TF_DIR)/files $(WS)/;
@@ -71,7 +75,7 @@ validate: select_ws
 
 version:
 	$(TERRAFORM) -v
-	
+
 ws_list:
 	$(TERRAFORM) workspace list
 
