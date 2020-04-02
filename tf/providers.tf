@@ -1,1 +1,1 @@
-provider "openstack" {version = "v1.22.0"}
+provider "openstack" {version = "v1.26.0"}
