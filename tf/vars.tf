@@ -1,13 +1,13 @@
 variable "nfs_disk_size" {
-  default = 3
+  default = 300
 }
 
 variable "flavors" {
   type = "map"
   default = {
-    "central-manager" = "m1.medium"
-    "nfs-server" = "m1.medium"
-    "exec-node" = "m1.medium"
+    "central-manager" = "standard.medium"
+    "nfs-server" = "standard.medium"
+    "exec-node" = "standard.xxlarge"
     "gpu-node" = "m1.medium"
   }
 }
