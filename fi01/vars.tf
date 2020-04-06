@@ -13,7 +13,7 @@ variable "flavors" {
 }
 
 variable "exec_node_count" {
-  default = 2
+  default = 3
 }
 
 variable "gpu_node_count" {
