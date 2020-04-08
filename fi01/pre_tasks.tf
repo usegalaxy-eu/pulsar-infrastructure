@@ -18,6 +18,7 @@ resource "openstack_networking_subnet_v2" "_internal" {
   name        = "${var.private_network["subnet_name"]}"
   network_id  = "${openstack_networking_network_v2._internal.id}"
   cidr       = "${var.private_network["cidr4"]}"
+  dns_nameservers = ["193.166.4.24", "193.166.4.25"]
   ip_version  = 4
   enable_dhcp = true
 }
