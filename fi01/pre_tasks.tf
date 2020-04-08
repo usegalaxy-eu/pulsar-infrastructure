@@ -26,7 +26,8 @@ resource "openstack_networking_subnet_v2" "_internal" {
 // Create a router to ensure the private network will be able to reach the Internet
 // comment these blocks if this feature is provided by the network
 resource "openstack_networking_router_v2" "router_1" {
-  name                = "${var.name_prefix}router"
+  #name                = "${var.name_prefix}router"
+  name                = "project_2002859-router"
   external_network_id = "${data.openstack_networking_network_v2.external.id}"
 }
 
