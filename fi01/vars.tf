@@ -43,7 +43,7 @@ variable "name_prefix" {
 }
 
 variable "name_suffix" {
-  default = ".usegalaxy.eu"
+  default = ".pulsar.csc.fi"
 }
 
 variable "secgroups_cm" {
