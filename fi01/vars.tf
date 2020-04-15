@@ -1,5 +1,5 @@
 variable "nfs_disk_size" {
-  default = 300
+  default = 1000
 }
 
 variable "flavors" {
