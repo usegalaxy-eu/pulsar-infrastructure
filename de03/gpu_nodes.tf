@@ -1,4 +1,4 @@
-resource "openstack_compute_instance_v2" "gpu-node" {
+resource "openstack_compute_instance_v2" "gpu-node-a" {
 
   count           = "${var.gpu_nodes_a["nodes_count"]}"
   name            = "${var.name_prefix}gpu-node-${count.index}${var.name_suffix}"
@@ -56,6 +56,18 @@ resource "openstack_compute_instance_v2" "gpu-node" {
       path: /etc/auto.data
       permissions: '0644'
   EOF
+}
+
+resource "openstack_blockstorage_volume_v2" "node-a-vol" {
+  count = "${var.gpu_nodes_a["nodes_count"]}"
+  name  = "${var.name_prefix}gpu-node-a${count.index}-vol"
+  size  = "${var.gpu_nodes_a["disk_size"]}"
+}
+
+resource "openstack_compute_volume_attach_v2" "attached-node-a" {
+  count       = "${var.gpu_nodes_a["nodes_count"]}"
+  instance_id = "${element(openstack_compute_instance_v2.gpu-node-a.*.id, count.index)}"
+  volume_id   = "${element(openstack_blockstorage_volume_v2.node-a-vol.*.id, count.index)}"
 }
 
 resource "openstack_compute_instance_v2" "gpu-node-b" {

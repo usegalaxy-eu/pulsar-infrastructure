@@ -23,10 +23,10 @@ variable "gpu_node_count" {
 variable "gpu_nodes_a" {
   type = "map"
   default = {
-    nodes_count = 7
+    nodes_count = 8
     flavor_name = "g1.gput4_g1c8m20"
-    image_name = "vggp-v31-j132-4ab83d5ffde9-master"
-    image_id = "ff22f5e2-5668-4293-95c7-75d42288d1fa"
+    image_name = "vggp-v31-j138-29cbb3fcb2cf-master"
+    image_id = "413fa1a9-37cf-433e-9604-4733caf8d035"
     disk_size = 500
   }
 }
