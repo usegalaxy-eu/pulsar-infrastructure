@@ -45,7 +45,7 @@ variable "gpu_nodes_b" {
 variable "gpu_nodes_c" {
   type = "map"
   default = {
-    nodes_count = 1
+    nodes_count = 2
     flavor_name = "g1.n46_g1c8m20_2"
     image_name = "vggp-v31-j138-29cbb3fcb2cf-master"
     image_id = "413fa1a9-37cf-433e-9604-4733caf8d035"
