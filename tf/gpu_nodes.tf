@@ -15,6 +15,7 @@ resource "openstack_compute_instance_v2" "gpu-node" {
     #cloud-config
     packages:
      - cuda-10-1
+     - nvidia-container-toolkit
     write_files:
     - content: |
         CONDOR_HOST = ${openstack_compute_instance_v2.central-manager.network.1.fixed_ip_v4}
